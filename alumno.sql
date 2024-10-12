@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `docente` (
   `apellido` VARCHAR(100) NOT NULL,
   `dni` VARCHAR(20) NOT NULL,
   `numero_matricula` VARCHAR(20) NOT NULL,
-  `materia_a_cargo` VARCHAR(100) NOT NULL,
+  `cargo_materia` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id_alumno`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4;
 
