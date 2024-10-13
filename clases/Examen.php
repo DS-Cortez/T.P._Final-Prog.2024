@@ -1,30 +1,40 @@
 <?php
-class Examenes {
-    private $materia_examen;
-    private $nota_examen;
-    private $docente_mesa;
-    private $fecha_mesa;
 
-    public function __construct($materia_examen, $nota_examen, $docente_mesa, $fecha_mesa) 
+class Examen
+{
+    protected $materia;
+    public $nota;
+    protected $docente;
+    protected $fecha;
+    
+
+    public function __construct($materia, $nota, $docente, $fecha)
     {
-        $this->materia_examen = $materia_examen;
-        $this->nota_examen = $nota_examen;
-        $this->docente_mesa = $docente_mesa;
-        $this->fecha_mesa = $fecha_mesa;
-    }
-    public function getMateriaExamen() {
-        return $this->materia_examen;
+        $this->materia = $materia;
+        $this->nota = $nota;
+        $this->docente = $docente;
+        $this->fecha = $fecha;
+        
     }
 
-    public function getNotaExamen() {
-        return $this->nota_examen;
+    public function getMateria()
+    {
+        return $this->materia;
     }
 
-    public function getMesaDocente() {
-        return $this->docente_mesa;
+    public function getNota()
+    {
+        return $this->nota;
     }
 
-    public function getFechaMesa() {
-        return $this->fecha_mesa;
+    public function getDocente()
+    {
+        return $this->docente;
     }
+
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
 }
