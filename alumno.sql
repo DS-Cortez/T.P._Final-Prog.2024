@@ -15,19 +15,6 @@ CREATE TABLE IF NOT EXISTS `alumno` (
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
--- Tabla docente
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `docente` (
-  `id_docente` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(100) NOT NULL,
-  `apellido` VARCHAR(100) NOT NULL,
-  `dni` VARCHAR(20) NOT NULL,
-  `numero_matricula` VARCHAR(20) NOT NULL,
-  `cargo_materia` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`id_alumno`)
-) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4;
-
--- -----------------------------------------------------
 -- Tabla Materia
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Materia` (

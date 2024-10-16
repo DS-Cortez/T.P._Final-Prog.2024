@@ -1,19 +1,19 @@
 <?php
-require_once '.env.php'; 
+require_once 'conexion.php';  
 require_once 'Usuario.php';
 
 function credenciales() {
     return [
         'servidor' => 'localhost',
         'usuario' => 'root',
-        'clave' => '',
+        'clave' => '96Filogolpe6996',
         'base_de_datos' => 'alumno'
     ];
 }
 
 class RepoUsuario
 {
-    private static $conexion = null;
+    public static $conexion = null;
 
     public function __construct()
     {
@@ -61,10 +61,10 @@ class RepoUsuario
     }
 
     
-    public function save($usuario_empleado, $clave_empleado, $id_usuario)
+    public function create($usuario_empleado, $clave_empleado)
     {
         
-        $q = "INSERT INTO usuario (usuario_empleado, clave_empleado, id_usuario) VALUES (?, ?, ?);"; 
+        $q = "INSERT INTO usuario (usuario_empleado, clave_empleado) VALUES (?, ?);"; 
         $query = self::$conexion->prepare($q);
         
         if ($query === false) {
@@ -75,7 +75,7 @@ class RepoUsuario
         $clave_encriptada = password_hash($clave_empleado, PASSWORD_DEFAULT);
 
         
-        $query->bind_param("sss", $usuario_empleado, $clave_encriptada, $id_usuario);
+        $query->bind_param("ss", $usuario_empleado, $clave_encriptada);
 
         
         if ($query->execute()) {
@@ -86,16 +86,5 @@ class RepoUsuario
             throw new Exception('Error en la ejecución de la consulta: ' . $query->error);
         }
     }
-    public function modificar(string $usuario_empleado, string $clave_empleado, Usuario $usuario) {
 
-        $q = "UPDATE usuario SET usuario_empleado = ?, clave_empleado = ? WHERE id_usuario = ?;";
-        
-        $query = self::$conexion->prepare($q);
-        
-        $id = $usuario->getIdUsuario();
-        
-        $query->bind_param("ssi", $usuario_empleado, $clave_empleado, $id);
-        
-        return $query->execute();
-    }
 }
