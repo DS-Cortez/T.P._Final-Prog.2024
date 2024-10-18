@@ -19,7 +19,6 @@
         <div class="container">
             <form action="eliminar_examen.php" method="post">
                 <input type="text" id="materia" name="materia_examen" placeholder="Materia" required>
-                <input type="text" id="docente" name="docente_examen" placeholder="Docente" required>
                 <input type="date" id="fecha" name="fecha_examen" required>
                 <button type="submit">Eliminar examen</button>
             </form>
