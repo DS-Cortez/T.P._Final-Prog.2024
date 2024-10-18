@@ -1,5 +1,5 @@
 <?php
-require_once 'clases/RepoExamen.php';
+require_once 'RepoExamen.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
